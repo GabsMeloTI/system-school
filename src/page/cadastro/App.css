@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.home-header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+}
+
+.home-corpo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2%;
+}
+
+.opcoes-corpo {
+  display: flex;
+  flex-direction: row;
+  margin-top: 2%;
+  width: 80%;
+}
+
+.link-style {
+  text-decoration: none; 
+  color: #000; 
+  font-weight: bold; 
+  margin: 0 10px; 
+}
+
+.opcoes-corpo button {
+  width: 100%;
+  border: #4cafdc solid 1px;
+  background-color: #fff;
+  font-size: .8rem;
+  padding: 1% 0%;
+  margin-bottom: 1%;
+  font-weight: bold;
+}
+
+.escrita-corpo {
+  text-align: center;
+}
+
