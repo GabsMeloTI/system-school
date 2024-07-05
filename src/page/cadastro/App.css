@@ -1,10 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
   font-family: "Montserrat", sans-serif;
 }
-
 
 .container {
   display: flex;
@@ -54,3 +55,57 @@
   text-align: center;
 }
 
+.formulario {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: #4cafdc solid 1px;
+  border-radius: 10px;
+  padding: 1%;
+  width: 80%;
+  font-size: .8rem;
+  padding: 2% 5%;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8%;
+}
+
+.input input {
+  border-radius: 10px;
+  border: #000 solid 1px;
+  width: 160%;
+  padding: 3% 5%;
+  font-size: .7rem;
+}
+
+.input-imagem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-imagem input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  background-color: #4cafdc;
+  color: #fff;
+  border-radius: 4px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.input-imagem img {
+  max-width: 100%;
+  width: 250px;
+  height: 250px;
+  margin-top: 10px;
+  object-fit: contain;
+}
