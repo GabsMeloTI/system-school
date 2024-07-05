@@ -1,5 +1,5 @@
 import './App.css';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'; // Importe corretamente o Link
 import logo from '../../assets/img/logo-edc.png'
 import excluir from '../../assets/img/excluir.png'
@@ -7,7 +7,45 @@ import editar from '../../assets/img/botao-editar.png'
 import seta from '../../assets/img/seta.png'
 import filtro from '../../assets/img/filtro.png'
 
+import axios from 'axios';
+
+const api = axios.create({
+    baseURL: '/', 
+});
+
 export default function Home() {
+
+  const [alunos, setAlunos] = useState([])
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await api.get('/aluno');
+        if (Array.isArray(response.data.content)) {
+          setAlunos(response.data.content);
+        } else {
+          console.error('Dados retornados não são um array:', response.data);
+        }
+      } catch(error) {
+        console.error('Erro ao buscar aluno: ', error);
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, [])
+
+  const handleDelete = async(codigo) => {
+    try {
+      await api.delete(`/aluno/${codigo}`);
+      alert("Aluno removido.")
+      const response = await api.get('/aluno');
+      setAlunos(response.data.content);
+    } catch(error) {
+      console.error('Erro ao excluir aluno: ', error);
+    }
+  }
+
   return (
     <div className="container">
       <header className="home-header">
@@ -53,27 +91,22 @@ export default function Home() {
               <th>Detalhes</th>
             </tr>
           </thead>
+          
           <tbody>
-              <tr>
-                <td>01</td>
-                <td>Gabriel Melo</td>
-                <td>ADS</td>
-                <td>(11) 980201892</td>
-                <td className='foto'><img  src="https://media-gru1-1.cdn.whatsapp.net/v/t61.24694-24/429984930_1410278129592123_3912362239692716687_n.jpg?ccb=11-4&oh=01_Q5AaIJxFqv4YKcud7UT6eqvaa7bLU7akY9ifr3Yg4PsWWYRc&oe=668BF794&_nc_sid=e6ed6c&_nc_cat=109" alt="" /></td>
-                <td className='icon'><img src={editar} alt="" /></td>
-                <td className='icon'><img src={excluir} alt="" /></td>
-                <td className='icon'><img src={seta} alt="" /></td>
-              </tr>
-              <tr>
-                <td>02</td>
-                <td>Elder Bispo</td>
-                <td>ADM</td>
-                <td>(11) 980201890</td>
-                <td className='foto'><img  src="https://media-gru1-1.cdn.whatsapp.net/v/t61.24694-24/172381740_143059721018358_820305966838350501_n.jpg?ccb=11-4&oh=01_Q5AaIGCc4-9d7SZxIkWUKC5eUZb4Fm-XFOvl8VGTzmFUq9He&oe=66928045&_nc_sid=e6ed6c&_nc_cat=108" alt="" /></td>
-                <td className='icon'><img src={editar} alt="" /></td>
-                <td className='icon'><img src={excluir} alt="" /></td>
-                <td className='icon'><img src={seta} alt="" /></td>
-              </tr>
+            {alunos.map(aluno => (
+                <tr key={aluno.codigo}>
+                  <td>{aluno.codigo}</td>
+                  <td>{aluno.nome}</td>
+                  <td>{aluno.curso ? aluno.curso.nome : 'Sem curso'}</td>
+                  <td>{aluno.contato ? aluno.contato.telefone : 'Sem contato'}</td>
+                  <td className='foto'>
+                    <img src={aluno.foto ? aluno.foto : 'https://via.placeholder.com/150'} alt={aluno.nome} />
+                  </td>
+                  <td className='icon'><img src={editar} alt="Editar" /></td>
+                  <td className='icon' onClick={() => handleDelete(aluno.codigo)}><img src={excluir} alt="Excluir" /></td>
+                  <td className='icon'><img src={seta} alt="Detalhes" /></td>
+                </tr>
+              ))}
           </tbody>
         </table>
       </div>
