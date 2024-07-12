@@ -109,7 +109,9 @@ th, td {
   margin: 0 auto;
 }
 
+
 .icon img {
+  cursor: pointer;
   width: 18px;
   height: auto; 
   display: block;

@@ -57,7 +57,7 @@
 
 .formulario {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   border: #4cafdc solid 1px;
   border-radius: 10px;
@@ -65,6 +65,12 @@
   width: 80%;
   font-size: .8rem;
   padding: 2% 5%;
+}
+
+.divisao {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .input {
@@ -108,4 +114,27 @@
   height: 250px;
   margin-top: 10px;
   object-fit: contain;
+}
+
+.botaoEselect {
+  display: flex;
+  flex-direction: column;
+}
+
+.botaoEselect select {
+  border-radius: 10px;
+  border: #000 solid 1px;
+  padding: 0.5%;
+  font-size: .7rem;
+}
+
+.botaoEselect button {
+  padding: 6px 12px;
+  cursor: pointer;
+  background-color: #4cafdc;
+  color: #fff;
+  border-radius: 4px;
+  font-weight: bold;
+  border: none;
+  margin-top: 1%;
 }
