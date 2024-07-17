@@ -1,0 +1,94 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.home-header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+}
+
+.home-corpo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2%;
+}
+
+.opcoes-corpo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; 
+  margin-top: 2%;
+  width: 80%;
+  border: #4cafdc solid 1px;
+  padding: 1% 2%;
+  margin-bottom: 1%;
+  font-weight: bold;
+}
+
+.opcoes-corpo h1 {
+  flex-grow: 1; 
+  text-align: center;
+  margin: 0;
+  color: #000;
+}
+
+.link-style {
+  text-decoration: none; 
+  color: #000; 
+  font-weight: bold; 
+  margin: 0 10px; 
+}
+
+.foto img {
+  max-width: 100%;
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+}
+
+.dados-aluno {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  padding: 2% 5%;
+  border: #4cafdc solid 1px;
+}
+
+.nome-id {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5%;
+}
+
+.nome-id h1 {
+  flex-grow: 1; 
+  text-align: center;
+  color: #000;
+}
+
+.outros-dados {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.outros-dados p {
+  margin-bottom: 3%;
+}
+
+
