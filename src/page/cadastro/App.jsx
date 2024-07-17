@@ -9,7 +9,7 @@ const api = axios.create({
   baseURL: 'http://localhost:8080',
 });
 
-export default function Home() {
+export default function Cadastro() {
   const [nome, setNome] = useState('');
   const [nascimento, setNascimento] = useState("2024-07-01");
   const [email, setEmail] = useState('');
@@ -90,6 +90,7 @@ export default function Home() {
       await api.post(`/aluno/${alunoId}/curso/${cursoSelecionado}`);
 
       console.log('Aluno cadastrado com sucesso!');
+      alert('Aluno cadastrado com sucesso!');
     } catch (error) {
       console.error('Erro ao cadastrar:', error);
     }
