@@ -57,7 +57,7 @@ export default function Home() {
           <h1>Seja Bem-Vindo</h1>
         </div>
 
-        <div className='opcoes-corpo'>
+        <div className='opcoes-corpo-h'>
           <button><Link className='link-style' to='/'>Listagem</Link></button>
           <button><Link className='link-style' to='/cadastrar'>Cadastrar</Link></button>
           <button><Link className='link-style' to='/addCurso'>Adicionar Curso</Link></button>
@@ -99,12 +99,12 @@ export default function Home() {
                   <td>{aluno.nome}</td>
                   <td>{aluno.curso ? aluno.curso.nome : 'Sem curso'}</td>
                   <td>{aluno.contato ? aluno.contato.telefone : 'Sem contato'}</td>
-                  <td className='foto'>
+                  <td className='foto-h'>
                     <img src={aluno.foto ? aluno.foto : 'https://via.placeholder.com/150'} alt={aluno.nome} />
                   </td>
-                  <td className='icon'><img src={editar} alt="Editar" /></td>
+                  <td className='icon'><Link className='link-style' to='/editar'><img src={editar} alt="Editar" /></Link></td>
                   <td className='icon' onClick={() => handleDelete(aluno.codigo)}><img src={excluir} alt="Excluir" /></td>
-                  <td className='icon'><img src={seta} alt="Detalhes" /></td>
+                  <td className='icon'><Link className='link-style' to='/detalhes'><img src={seta} alt="Detalhes" /></Link></td>
                 </tr>
               ))}
           </tbody>

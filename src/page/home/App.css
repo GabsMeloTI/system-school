@@ -10,6 +10,7 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  margin-bottom: 5%;
 }
 
 .home-header {
@@ -26,7 +27,7 @@
   margin-top: 2%;
 }
 
-.opcoes-corpo {
+.opcoes-corpo-h {
   display: flex;
   flex-direction: row;
   margin-top: 2%;
@@ -40,7 +41,7 @@
   margin: 0 10px; 
 }
 
-.opcoes-corpo button {
+.opcoes-corpo-h button {
   width: 100%;
   border: #4cafdc solid 1px;
   background-color: #fff;
@@ -102,7 +103,7 @@ th, td {
   font-size: 0.7rem;
 }
 
-.foto img {
+.foto-h img {
   width: 35px;
   height: auto; 
   display: block;
